@@ -10,5 +10,5 @@ def users_settings(currencies: list, stocks: list):
     stocks = [stock.upper() for stock in stocks]
     """Функция записывающая настройки пользователя в json файл"""
     users_settings_dict = {"user_currencies": currencies, "user_stocks": stocks}
-    with open(PATH_FILE, "a", encoding="UTF8") as file:
-        file.write(json.dumps(users_settings_dict))
+    with open(PATH_FILE, "w", encoding="UTF8") as file:
+        file.write(json.dumps(users_settings_dict, indent=4))

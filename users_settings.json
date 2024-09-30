@@ -1,1 +1,8 @@
-{"user_currencies": ["USD", "RUB"], "user_stocks": ["FFF", "AAA", "FAF"]}{"user_currencies": ["AS"], "user_stocks": ["ASD"]}{"user_currencies": [], "user_stocks": []}{"user_currencies": [], "user_stocks": []}{"user_currencies": [], "user_stocks": []}{"user_currencies": [], "user_stocks": []}
+{
+    "user_currencies": [
+        "A B C"
+    ],
+    "user_stocks": [
+        "S, B, C"
+    ]
+}
