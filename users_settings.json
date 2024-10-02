@@ -1,12 +1,10 @@
 {
     "user_currencies": [
-        "USD",
-        "EUR"
+        "C_1",
+        "C_2"
     ],
     "user_stocks": [
-        "AAPL",
-        "AMZN",
-        "GOOGL",
-        "TSLA"
+        "S_1",
+        "S_2"
     ]
 }

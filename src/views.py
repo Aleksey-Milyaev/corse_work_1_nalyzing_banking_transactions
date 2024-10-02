@@ -1,8 +1,10 @@
 import json
 import logging
 import os
-from utils import (card_info, read_transactions, count_card, get_gritting, top_transaction, currency_rate,
-                   stock_prices)
+from typing import Any
+
+from src.utils import (card_info, count_card, currency_rate, get_gritting, read_transactions, stock_prices,
+                       top_transaction)
 
 logger = logging.getLogger("views")
 logger.setLevel(logging.INFO)
@@ -15,7 +17,7 @@ PATH_MAIN_PAGE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data"
 PATH_USERS_SETTINGS = os.path.join(os.path.dirname(os.path.dirname(__file__)), "users_settings.json")
 
 
-def main_page(user_date: str):
+def main_page(user_date: Any) -> Any:
     """Функция возвращающая json файл с информацией по картам, транзакциям, курсе валют, акциях"""
     try:
         with open(PATH_USERS_SETTINGS, encoding="UTF8") as file:
@@ -35,15 +37,26 @@ def main_page(user_date: str):
             information_card.append(card_info(transactions, card))
 
         for item in top_five:
-            operation = {"date": item['Дата платежа'], "amount": item['Сумма операции'],
-                         "category": item['Категория'], "description": item['Описание']}
+            operation = {
+                "date": item["Дата платежа"],
+                "amount": item["Сумма операции"],
+                "category": item["Категория"],
+                "description": item["Описание"],
+            }
             top_transactions.append(operation)
 
-        response = [{"gritting": get_gritting(user_date), "cards": information_card},
-                    {"top_transactions": top_transactions}, {"currency_rates": currency}, {"stock_prices": stocks}]
+        response = [
+            {"gritting": get_gritting(user_date), "cards": information_card},
+            {"top_transactions": top_transactions},
+            {"currency_rates": currency},
+            {"stock_prices": stocks},
+        ]
         logger.info("json ответ с результатами успешно передан")
+
+        response = json.dumps(response, indent=4, ensure_ascii=False)
 
         return response
 
     except Exception as ex:
+        print({ex})
         logger.error(f"views: ошибка {ex}")
