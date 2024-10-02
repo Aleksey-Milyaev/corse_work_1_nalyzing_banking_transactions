@@ -1,6 +1,6 @@
-from user_setting import users_settings
+from utils import users_settings
 from views import main_page
-from datetime import datetime
+
 
 if __name__ == '__main__':
 
