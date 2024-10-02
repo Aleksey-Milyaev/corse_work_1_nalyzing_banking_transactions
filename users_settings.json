@@ -1,0 +1,10 @@
+{
+    "user_currencies": [
+        "C_1",
+        "C_2"
+    ],
+    "user_stocks": [
+        "S_1",
+        "S_2"
+    ]
+}
